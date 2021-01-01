@@ -7,7 +7,7 @@ jobs:
   lint:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Setup Python environment
       uses: actions/setup-python@v2
     - name: Install requirements
@@ -24,11 +24,11 @@ jobs:
     needs: [lint]
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Set up GCloud
       uses: google-github-actions/setup-gcloud@master
       with:
-        version: '274.0.1'
+        version: '290.0.1'
         service_account_email: ${{ secrets.GCP_SERVICE_ACCT_EMAIL }}
         service_account_key: ${{ secrets.GCP_SERVICE_ACCT_KEY }}
     - run: |
