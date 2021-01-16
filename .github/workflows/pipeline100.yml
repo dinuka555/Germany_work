@@ -77,10 +77,11 @@ jobs:
         gcloud config set run/region ${{ secrets.GCP_REGION }}
         gcloud info
         
-    - name: Deploy to Cloud Run
-      run: gcloud run deploy ${{ env.APPLICATION_NAME }} --image=gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ env.APPLICATION_NAME }}:latest --platform=managed --allow-unauthenticated
-
-    - name: Test deployment
+    # Deploy the Docker image to the GKE cluster
+    - name: Deploy
       run: |
-        DEPLOY_URL=$(gcloud run services describe app2 --platform=managed --region=us-central1 | grep https)
-        curl -sL --max-time 300 -o /dev/null -w "%{http_code}" $DEPLOY_URL | grep 200 || exit 1
+        gcloud container clusters get-credentials $GKE_CLUSTER \
+          --zone ${{ secrets.GCP_REGION }} \
+          --project ${{ secrets.GCP_PROJECT_ID }}
+        kubectl get services -o wide
+        kubectl create deployment satellites2  --replicas=2 --image="gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ env.APPLICATION_NAME }}:latest" 
