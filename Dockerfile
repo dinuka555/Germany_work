@@ -21,4 +21,4 @@ RUN pip install --upgrade pip && \
 EXPOSE 5000
 
 # execute the Flask app
-CMD ["python","/app/app.py"]
+CMD ["python", "/app/app.py"]
