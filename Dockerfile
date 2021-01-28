@@ -19,10 +19,9 @@ RUN pip install --upgrade pip && \
         pytest-flask
 
 # expose the default flask port
-EXPOSE 8080
+EXPOSE 5000
 
 # execute the Flask app
 ENTRYPOINT ["python"]
-HEALTHCHECK CMD curl --fail http://localhost:8080/ || exit 1
-EXPOSE 8080
+HEALTHCHECK CMD curl --fail http://localhost:5000/ || exit 1
 CMD ["/app/main.py"]
