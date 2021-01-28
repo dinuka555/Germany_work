@@ -26,4 +26,4 @@ def index():
     #return "Hello Nuclear Geeks"
 
 if __name__ == '__main__':
-    app.run()
+    APP.run("0.0.0.0", port=5000, debug=True)
