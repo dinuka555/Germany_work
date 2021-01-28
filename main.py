@@ -22,8 +22,8 @@ def index():
         mysql.connection.commit()
         cur.close()
         return 'success'
-    #return render_template('index.html')
-    return "Hello Nuclear Geeks"
+    return render_template('index.html')
+    #return "Hello Nuclear Geeks"
 
 if __name__ == '__main__':
     app.run()
