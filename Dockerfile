@@ -25,4 +25,4 @@ EXPOSE 8080
 ENTRYPOINT ["python"]
 HEALTHCHECK CMD curl --fail http://localhost:8080/ || exit 1
 EXPOSE 8080
-CMD ["python", "/app/main.py"]
+CMD ["python", "/app/app.py"]
