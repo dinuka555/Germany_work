@@ -6,4 +6,4 @@ def hello():
     return "Hello from Python!"
   
 if __name__ == '__main__':
-    APP.run("0.0.0.0", port=5000, debug=True)
+    app.run("0.0.0.0", port=5000, debug=True)
