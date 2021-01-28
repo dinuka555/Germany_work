@@ -3,9 +3,9 @@ from flask_mysqldb import MySQL
 app = Flask(__name__)
 
 
-app.config['MYSQL_HOST'] = '34.117.107.9'
+app.config['MYSQL_HOST'] = '10.4.13.36'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_PASSWORD'] = ' '
 app.config['MYSQL_DB'] = 'satdata'
 
 mysql = MySQL(app)
@@ -22,7 +22,7 @@ def index():
         mysql.connection.commit()
         cur.close()
         return 'success'
-    return render_template('index.html')
+    return "Hello from Python!"
 
 
 if __name__ == '__main__':
