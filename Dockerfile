@@ -24,4 +24,4 @@ EXPOSE 5000
 # execute the Flask app
 ENTRYPOINT ["python"]
 HEALTHCHECK CMD curl --fail http://localhost:5000/ || exit 1
-CMD ["/app/main1.py"]
+CMD ["/app/main.py"]
