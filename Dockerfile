@@ -1,26 +1,9 @@
-# use a python image
-FROM python:3.6
+FROM python:3.7
 
-# set the working directory in the container to /app
+RUN mkdir /app
 WORKDIR /app
+ADD . /app/
+RUN pip install -r requirements.txt
 
-# add the current directory to the container as /app
-COPY . /app
-
-# pip install flask
-RUN pip install --upgrade pip && \
-    pip install \
-        Flask \
-        awscli \
-        flake8 \
-        pylint \
-        pytest \
-        pytest-flask
-
-# expose the default flask port
 EXPOSE 5000
-
-# execute the Flask app
-ENTRYPOINT ["python"]
-HEALTHCHECK CMD curl --fail http://localhost:5000/ || exit 1
-CMD ["/app/app.py"]
+CMD ["python", "/app/app.py"]
