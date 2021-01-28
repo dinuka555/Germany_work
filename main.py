@@ -15,8 +15,8 @@ mysql = MySQL(app)
 def index():
     if request.method == "POST":
         details = request.form
-        location = details['fname']
-        orbit = details['lname']
+        location = details['UK']
+        orbit = details['59.7']
         cur = mysql.connection.cursor()
         cur.execute("INSERT INTO satdata(location, orbit) VALUES (%s, %s)", (location, orbit))
         mysql.connection.commit()
