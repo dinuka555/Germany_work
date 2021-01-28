@@ -15,10 +15,10 @@ mysql = MySQL(app)
 def index():
     if request.method == "POST":
         details = request.form
-        firstName = details['fname']
-        lastName = details['lname']
+        location = details['fname']
+        orbit = details['lname']
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO MyUsers(firstName, lastName) VALUES (%s, %s)", (firstName, lastName))
+        cur.execute("INSERT INTO satdata(location, orbit) VALUES (%s, %s)", (location, orbit))
         mysql.connection.commit()
         cur.close()
         return 'success'
