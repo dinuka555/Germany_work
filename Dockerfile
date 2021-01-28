@@ -21,6 +21,4 @@ RUN pip install --upgrade pip && \
 EXPOSE 5000
 
 # execute the Flask app
-ENTRYPOINT ["python"]
-HEALTHCHECK CMD curl --fail http://localhost:5000/ || exit 1
-CMD ["/app/app.py"]
+CMD ["python","/app/app.py"]
