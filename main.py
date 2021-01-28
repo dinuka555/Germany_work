@@ -18,7 +18,7 @@ def index():
         location = details['UK']
         orbit = details['59.7']
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO satdata(location, orbit) VALUES (%s, %s)", (location, orbit))
+        cur.execute("INSERT INTO satdata(location, orbit) VALUES (mas, kos)", (location, orbit))
         mysql.connection.commit()
         cur.close()
         return 'success'
