@@ -22,7 +22,7 @@ def index():
         mysql.connection.commit()
         cur.close()
         return 'success'
-    return "Hello from Python!"
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
