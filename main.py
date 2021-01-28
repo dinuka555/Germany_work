@@ -3,10 +3,10 @@ from flask_mysqldb import MySQL
 app = Flask(__name__)
 
 
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = '34.117.107.9'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'root'
-app.config['MYSQL_DB'] = 'MyDB'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'satdata'
 
 mysql = MySQL(app)
 
