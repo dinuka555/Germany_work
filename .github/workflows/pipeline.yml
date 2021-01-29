@@ -93,4 +93,4 @@ jobs:
         #--dry-run -o python-deployment.yaml | kubectl apply -f -
          #kubectl apply -k /.github/workflows/python-deployment.yaml
         #cat ./.python-deployment.yaml | kubectl apply -f -
-        kubectl apply -f https://k8s.io/examples/controllers/python-deployment.yaml
+        minikube start
