@@ -40,12 +40,8 @@ def index():
 @app.route('/', methods=['GET', 'POST'])
 def index1():
     if request.method == "POST":
-        details = request.form
-        log_time = details['log']
         _ID = details['id']
-        orbit = details['or']
-        sendfrom = details['send']
-        location = details['loc']
+
         
         cur = mysql.connection.cursor()
         #cur.execute("INSERT INTO MyUsers(firstName, lastName) VALUES (%s, %s)", (firstName, lastName))
@@ -54,10 +50,10 @@ def index1():
         #cur.execute("INSERT INTO messages(message) VALUES ('%s')",(firstName))
         #cur.execute("INSERT INTO messages(message) VALUES ('testdata1')")
         #    cur.execute("INSERT INTO song (title) VALUES ('%s')" %(i,))
-        cur.execute("INSERT INTO satdata(messages) VALUES ('%s','%s','%s','%s','%s')" %(log_time,_ID,orbit,sendfrom,location))
+        #cur.execute("INSERT INTO satdata(messages) VALUES ('%s','%s','%s','%s','%s')" %(log_time,_ID,orbit,sendfrom,location))
+         cur.execute("SELECT*FROM satdata(messages)")
+         fetchdata = cur.fetchall()
 
-
-        mysql.connection.commit()
         cur.close()
         return 'success'
     return render_template('web1.html')
