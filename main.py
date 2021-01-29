@@ -21,7 +21,9 @@ def index():
         #cur.execute("INSERT INTO MyUsers(firstName, lastName) VALUES (%s, %s)", (firstName, lastName))
         #sql = "INSERT INTO image VALUES (%s)"
 
-        cur.execute("INSERT INTO messages(message) VALUES ('%s')",(firstName))
+        #cur.execute("INSERT INTO messages(message) VALUES ('%s')",(firstName))
+         cur.execute("INSERT INTO messages(message) VALUES ("1235")")
+
         mysql.connection.commit()
         cur.close()
         return 'success'
