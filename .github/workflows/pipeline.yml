@@ -92,4 +92,4 @@ jobs:
         #kubectl apply -d python-deployment.yaml
         #--dry-run -o python-deployment.yaml | kubectl apply -f -
          #kubectl apply -k /.github/workflows/python-deployment.yaml
-        cat python-deployment.yaml | kubectl apply -f -
+        cat ./python-deployment.yaml | kubectl apply -f -
