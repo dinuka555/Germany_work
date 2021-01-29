@@ -96,7 +96,7 @@ jobs:
         #vim python-deployment.yaml
         #mv python-deployment.yaml\  python-deployment.yaml
         #kubectl create -f python-deployment.yaml
-        cat python-deployment.yaml | kubectl apply -f -
+        cat <<EOF  | kubectl apply -f -
         apiVersion: v1
         kind: Service
         metadata:
@@ -109,7 +109,7 @@ jobs:
            port: 80
            targetPort: 5000
         type: LoadBalancer
-
+        EOF
 
 
 
