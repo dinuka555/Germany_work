@@ -96,4 +96,5 @@ jobs:
         #vim python-deployment.yaml
         #mv python-deployment.yaml\  python-deployment.yaml
         #kubectl create -f python-deployment.yaml
-        kubectl apply -f dir/python-deployment.yaml
+        kubectl apply -f ./dir/python-deployment.yaml
+        
