@@ -15,8 +15,12 @@ mysql = MySQL(app)
 def index():
     if request.method == "POST":
         details = request.form
-        firstName = details['fname']
-        #lastName = details['lname']
+        log_time = details['log']
+        ID = details['id']
+        orbit = details['or']
+        sendfrom = details['send']
+        location = details['loc']
+        
         cur = mysql.connection.cursor()
         #cur.execute("INSERT INTO MyUsers(firstName, lastName) VALUES (%s, %s)", (firstName, lastName))
         #sql = "INSERT INTO image VALUES (%s)"
@@ -24,7 +28,7 @@ def index():
         #cur.execute("INSERT INTO messages(message) VALUES ('%s')",(firstName))
         #cur.execute("INSERT INTO messages(message) VALUES ('testdata1')")
         #    cur.execute("INSERT INTO song (title) VALUES ('%s')" %(i,))
-        cur.execute("INSERT INTO messages(message) VALUES ('%s')" %(firstName,))
+        cur.execute("INSERT INTO messages(message) VALUES ('%s')" %(log_time,ID,orbit,sendfrom,location))
 
 
         mysql.connection.commit()
