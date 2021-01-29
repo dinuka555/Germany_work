@@ -91,4 +91,4 @@ jobs:
          #kubectl create deployment satellites2  --replicas=2 --image="gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ env.APPLICATION_NAME }}:latest" 
         #kubectl apply -d python-deployment.yaml
         #--dry-run -o python-deployment.yaml | kubectl apply -f -
-        kubectl apply -f ./.github/workflows/python-deployment.yaml
+        kubectl apply -k dir/.github/workflows/python-deployment.yaml
