@@ -112,6 +112,9 @@ jobs:
         metadata:
           name: satellite
         spec:
+          selector:
+            matchLabels:
+              app: satellite
           replicas: 2
           template:
             metadata:
