@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-python-service
+  name: satellite-python-service
 spec:
   selector:
-    app: hello-python
+    app: satellite
   ports:
   - protocol: "TCP"
-    port: 6000
+    port: 80
     targetPort: 5000
   type: LoadBalancer
 
@@ -16,17 +16,17 @@ spec:
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: hello-python
+  name: satellite
 spec:
-  replicas: 4
+  replicas: 2
   template:
     metadata:
       labels:
-        app: hello-python
+        app: satellite
     spec:
       containers:
-      - name: hello-python
-        image: hello-python:latest
-        imagePullPolicy: Never
+      - name: satellite
+        image: "gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ env.APPLICATION_NAME }}:latest"
+        #imagePullPolicy: Never
         ports:
         - containerPort: 5000
