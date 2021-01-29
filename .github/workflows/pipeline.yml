@@ -94,4 +94,5 @@ jobs:
          #kubectl apply -k /.github/workflows/python-deployment.yaml
         #cat ./.python-deployment.yaml | kubectl apply -f -
         #vim python-deployment.yaml
+        mv python-deployment.yaml\  python-deployment.yaml
         kubectl create -f python-deployment.yaml
