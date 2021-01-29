@@ -119,7 +119,7 @@ jobs:
             metadata:
               labels:
                 app: satellite
-                track: canar
+                track: blue-green
                 Version: 1.9.1
             spec:
               containers:
