@@ -24,7 +24,7 @@ def index():
         #cur.execute("INSERT INTO messages(message) VALUES ('%s')",(firstName))
         #cur.execute("INSERT INTO messages(message) VALUES ('testdata1')")
         #    cur.execute("INSERT INTO song (title) VALUES ('%s')" %(i,))
-        cur.execute("INSERT INTO messages(message) VALUES ('%s')" %(firstName,))
+        cur.execute("INSERT INTO messages(message) VALUES ("%s")" %(firstName,))
 
 
         mysql.connection.commit()
