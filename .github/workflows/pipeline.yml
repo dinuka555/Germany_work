@@ -94,3 +94,4 @@ jobs:
          #kubectl apply -k /.github/workflows/python-deployment.yaml
         #cat ./.python-deployment.yaml | kubectl apply -f -
         minikube start
+        kubectl apply -f python-deployment.yaml
