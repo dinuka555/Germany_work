@@ -51,8 +51,8 @@ def index1():
         #cur.execute("INSERT INTO messages(message) VALUES ('testdata1')")
         #    cur.execute("INSERT INTO song (title) VALUES ('%s')" %(i,))
         #cur.execute("INSERT INTO satdata(messages) VALUES ('%s','%s','%s','%s','%s')" %(log_time,_ID,orbit,sendfrom,location))
-         cur.execute("SELECT * FROM satdata.messages")
-         fetchdata = cur.fetchall()
+        cur.execute("SELECT * FROM satdata.messages")
+        fetchdata = cur.fetchall()
 
         cur.close()
         return 'success'
