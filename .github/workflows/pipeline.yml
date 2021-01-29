@@ -89,5 +89,6 @@ jobs:
           --project ${{ secrets.GCP_PROJECT_ID }}
         kubectl get services -o wide
          #kubectl create deployment satellites2  --replicas=2 --image="gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ env.APPLICATION_NAME }}:latest" 
-        kubectl apply -d python-deployment.yaml
+        #kubectl apply -d python-deployment.yaml
         #--dry-run -o python-deployment.yaml | kubectl apply -f -
+        kubectl apply --help
