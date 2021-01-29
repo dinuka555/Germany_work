@@ -89,27 +89,22 @@ jobs:
           --project ${{ secrets.GCP_PROJECT_ID }}
         kubectl get services -o wide
          #kubectl create deployment satellites2  --replicas=2 --image="gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ env.APPLICATION_NAME }}:latest" 
-        #kubectl apply -f /.python-deployment.yaml
-        #--dry-run -o python-deployment.yaml | kubectl apply -f -
-         #kubectl apply -k /.github/workflows/python-deployment.yaml
-        #cat ./.python-deployment.yaml | kubectl apply -f -
-        #vim python-deployment.yaml
-        #mv python-deployment.yaml\  python-deployment.yaml
-        #kubectl create -f python-deployment.yaml
-        cat <<EOF  | kubectl apply -f -
+        
+        cat <<EOF | kubectl apply -f -
         apiVersion: v1
         kind: Service
         metadata:
-         name: satellite-python-service
+          name: satellite-python-service
         spec:
-         selector:
-           app: satellite
-        ports:
-         - protocol: "TCP"
-           port: 80
-           targetPort: 5000
-        type: LoadBalancer
+          selector:
+            app: satellite
+          ports:
+          - protocol: "TCP"
+            port: 80
+            targetPort: 5000
+          type: LoadBalancer
         EOF
+
 
 
 
