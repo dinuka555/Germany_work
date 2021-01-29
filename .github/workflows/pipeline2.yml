@@ -66,26 +66,26 @@ jobs:
     - name: Run unit tests in container
       run: docker run "gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ env.APPLICATION_NAME }}:latest" -m unittest --verbose --failfast
 
-# deploy:
-#    needs: [test_image]
-#    runs-on: ubuntu-18.04
-  #  steps:
-  #  - name: Set up GCloud
-  #    uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
-  #    with:
-  #      version: '274.0.1'
-  #      service_account_email: ${{ secrets.GCP_SERVICE_ACCT_EMAIL }}
-  #      service_account_key: ${{ secrets.GCP_SERVICE_ACCT_KEY }}
-  #  - run: |
-   #     gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
-   #     gcloud config set run/region ${{ secrets.GCP_REGION }}
-  #      gcloud info
+ deploy:
+    needs: [test_image]
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Set up GCloud
+      uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      with:
+        version: '274.0.1'
+        service_account_email: ${{ secrets.GCP_SERVICE_ACCT_EMAIL }}
+        service_account_key: ${{ secrets.GCP_SERVICE_ACCT_KEY }}
+    - run: |
+        gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
+        gcloud config set run/region ${{ secrets.GCP_REGION }}
+        gcloud info
         
     # Deploy the Docker image to the GKE cluster
-  #  - name: Deploy
-   #   run: |
-   #     gcloud container clusters get-credentials $GKE_CLUSTER \
-    #      --zone ${{ secrets.GCP_REGION }} \
-     #     --project ${{ secrets.GCP_PROJECT_ID }}
-      #  kubectl get services -o wide
-      #  kubectl create deployment satellites2  --replicas=2 --image="gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ env.APPLICATION_NAME }}:latest" 
+    - name: Deploy
+      run: |
+        gcloud container clusters get-credentials $GKE_CLUSTER \
+          --zone ${{ secrets.GCP_REGION }} \
+          --project ${{ secrets.GCP_PROJECT_ID }}
+        kubectl get services -o wide
+        kubectl create deployment satellites2  --replicas=2 --image="gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ env.APPLICATION_NAME }}:latest" 
