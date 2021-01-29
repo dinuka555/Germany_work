@@ -119,6 +119,8 @@ jobs:
             metadata:
               labels:
                 app: satellite
+                track: canary
+                Version: 1.9.1
             spec:
               containers:
               - name: satellite
