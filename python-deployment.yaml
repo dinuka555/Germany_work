@@ -13,11 +13,14 @@ spec:
 
 
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: satellite
 spec:
+ selector:
+   matchLabels:
+     app: satellite
   replicas: 2
   template:
     metadata:
