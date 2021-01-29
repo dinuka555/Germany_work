@@ -22,7 +22,7 @@ def index():
         #sql = "INSERT INTO image VALUES (%s)"
 
         #cur.execute("INSERT INTO messages(message) VALUES ('%s')",(firstName))
-        cur.execute("INSERT INTO messages(message) VALUES ("1235")")
+        cur.execute("INSERT INTO messages(message) VALUES ('testdata1')")
 
         mysql.connection.commit()
         cur.close()
