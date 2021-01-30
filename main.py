@@ -55,8 +55,8 @@ def index1():
         fetchdata = cur.fetchall()
 
         cur.close()
-        return 'success'
-    return render_template('web1.html')
+        #return 'success'
+    return render_template('web1.html',data=fetchdata)
 
 if __name__ == '__main__':
     app.run("0.0.0.0", port=5000, debug=True)
