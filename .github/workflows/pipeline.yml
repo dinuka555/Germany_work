@@ -124,7 +124,7 @@ jobs:
               containers:
               - name: satellite
                 image: gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ env.APPLICATION_NAME }}:latest 
-                imagePullPolicy: Never
+                imagePullPolicy: Always
                 ports:
                 - containerPort: 5000
         EOF
