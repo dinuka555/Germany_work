@@ -21,17 +21,17 @@ def index():
         sendfrom = details['send']
         location = details['loc']
         
-        #cur = mysql.connection.cursor()
         cur = mysql.connection.cursor()
-        #cur.execute("INSERT INTO messages(log_time, ID, orbit, sendfrom, location) VALUES ('%s','%s','%s','%s','%s')" %(log_time,_ID,orbit,sendfrom,location))
-        cur.execute("SELECT * FROM messages")
-        #mysql.connection.commit()
+        #cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO messages(log_time, ID, orbit, sendfrom, location) VALUES ('%s','%s','%s','%s','%s')" %(log_time,_ID,orbit,sendfrom,location))
+        #cur.execute("SELECT * FROM messages")
+        mysql.connection.commit()
         fetchdata = cur.fetchall ()
         cur.close()
         #cur.close()
-        #return 'success'
-    #return render_template('web1.html')
-    return render_template('web1.html', data = fetchdata)
+        return 'success'
+    return render_template('web1.html')
+    #return render_template('web1.html', data = fetchdata)
 
 if __name__ == '__main__':
     app.run("0.0.0.0", port=5000, debug=True)
