@@ -47,10 +47,7 @@ def index():
         #cur.execute("INSERT INTO MyUsers(firstName, lastName) VALUES (%s, %s)", (firstName, lastName))
         #sql = "INSERT INTO image VALUES (%s)"
 
-        #cur.execute("INSERT INTO messages(message) VALUES ('%s')",(firstName))
-        #cur.execute("INSERT INTO messages(message) VALUES ('testdata1')")
-        #    cur.execute("INSERT INTO song (title) VALUES ('%s')" %(i,))
-        #cur.execute("INSERT INTO satdata(messages) VALUES ('%s','%s','%s','%s','%s')" %(log_time,_ID,orbit,sendfrom,location))
+
         #cur.execute("SELECT * FROM messages")
         #fetchdata = cur.fetchall()
 
