@@ -28,13 +28,13 @@ def index():
         #cur.execute("INSERT INTO messages(message) VALUES ('%s')",(firstName))
         #cur.execute("INSERT INTO messages(message) VALUES ('testdata1')")
         #    cur.execute("INSERT INTO song (title) VALUES ('%s')" %(i,))
-         #cur.execute("INSERT INTO messages(log_time, ID, orbit, sendfrom, location) VALUES ('%s','%s','%s','%s','%s')" %(log_time,_ID,orbit,sendfrom,location))
+        cur.execute("INSERT INTO messages(log_time, ID, orbit, sendfrom, location) VALUES ('%s','%s','%s','%s','%s')" %(log_time,_ID,orbit,sendfrom,location))
 
 
-         #mysql.connection.commit()
-         #cur.close()
-         #return 'success'
-     #return render_template('web1.html')
+         mysql.connection.commit()
+         cur.close()
+         return 'success'
+     return render_template('web1.html')
 
 
 #@app.route('/', methods=['GET', 'POST'])
@@ -51,16 +51,16 @@ def index():
         #cur.execute("INSERT INTO messages(message) VALUES ('testdata1')")
         #    cur.execute("INSERT INTO song (title) VALUES ('%s')" %(i,))
         #cur.execute("INSERT INTO satdata(messages) VALUES ('%s','%s','%s','%s','%s')" %(log_time,_ID,orbit,sendfrom,location))
-        cur.execute("SELECT * FROM messages")
-        fetchdata = cur.fetchall()
+        #cur.execute("SELECT * FROM messages")
+        #fetchdata = cur.fetchall()
 
         #cur.close()
         #return 'success'
     #return render_template('web1.html',data=fetchdata)
-        mysql.connection.commit()
-        cur.close()
-        return 'success'
-    return render_template('web1.html',data=fetchdata)
+        #mysql.connection.commit()
+        #cur.close()
+        #return 'success'
+    #return render_template('web1.html',data=fetchdata)
 
 
 if __name__ == '__main__':
