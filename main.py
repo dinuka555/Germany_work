@@ -22,41 +22,11 @@ def index():
         location = details['loc']
         
         cur = mysql.connection.cursor()
-        #cur.execute("INSERT INTO MyUsers(firstName, lastName) VALUES (%s, %s)", (firstName, lastName))
-        #sql = "INSERT INTO image VALUES (%s)"
-
-        #cur.execute("INSERT INTO messages(message) VALUES ('%s')",(firstName))
-        #cur.execute("INSERT INTO messages(message) VALUES ('testdata1')")
-        #    cur.execute("INSERT INTO song (title) VALUES ('%s')" %(i,))
         cur.execute("INSERT INTO messages(log_time, ID, orbit, sendfrom, location) VALUES ('%s','%s','%s','%s','%s')" %(log_time,_ID,orbit,sendfrom,location))
         mysql.connection.commit()
         cur.close()
         return 'success'
     return render_template('web1.html')
-
-
-#@app.route('/', methods=['GET', 'POST'])
-#def index1():
-    #if request.method == "POST":
-       # _ID = details['id']
-
-        
-         #cur = mysql.connection.cursor()
-        #cur.execute("INSERT INTO MyUsers(firstName, lastName) VALUES (%s, %s)", (firstName, lastName))
-        #sql = "INSERT INTO image VALUES (%s)"
-
-
-        #cur.execute("SELECT * FROM messages")
-        #fetchdata = cur.fetchall()
-
-        #cur.close()
-        #return 'success'
-    #return render_template('web1.html',data=fetchdata)
-        #mysql.connection.commit()
-        #cur.close()
-        #return 'success'
-    #return render_template('web1.html',data=fetchdata)
-
 
 if __name__ == '__main__':
     app.run("0.0.0.0", port=5000, debug=True)
