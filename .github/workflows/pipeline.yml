@@ -81,7 +81,7 @@ jobs:
         gcloud config set run/region ${{ secrets.GCP_REGION }}
         gcloud info
         
-    # Deploy the Docker image to the GKE cluster
+    # Deploy the Docker image to the GKE cluster#
     - name: Deploy
       run: |
         gcloud container clusters get-credentials $GKE_CLUSTER \
