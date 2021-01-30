@@ -25,7 +25,7 @@ def index():
         cur.execute("INSERT INTO messages(log_time, ID, orbit, sendfrom, location) VALUES ('%s','%s','%s','%s','%s')" %(log_time,_ID,orbit,sendfrom,location))
         mysql.connection.commit()
         cur.close()
-        return 'success'
+        return 'successfully incert'
     return render_template('web1.html')
 
 
