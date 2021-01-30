@@ -24,7 +24,7 @@ def index():
         #cur = mysql.connection.cursor()
         cur = mysql.connection.cursor()
         #cur.execute("INSERT INTO messages(log_time, ID, orbit, sendfrom, location) VALUES ('%s','%s','%s','%s','%s')" %(log_time,_ID,orbit,sendfrom,location))
-        cur.execute(SELECT * FROM messages)
+        cur.execute("SELECT * FROM messages")
         #mysql.connection.commit()
         fetchdata=cur.fetchall()
         cur.close()
