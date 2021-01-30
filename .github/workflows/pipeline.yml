@@ -119,8 +119,6 @@ jobs:
             metadata:
               labels:
                 app: satellite
-                track: blue-green
-                Version: 1.9.1
             spec:
               containers:
               - name: satellite
