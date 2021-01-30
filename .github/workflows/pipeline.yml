@@ -114,7 +114,7 @@ jobs:
           selector:
             matchLabels:
               app: satellite
-          replicas: 3
+          replicas: 2
           template:
             metadata:
               labels:
