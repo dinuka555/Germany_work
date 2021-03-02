@@ -26,7 +26,7 @@ def index():
         mysql.connection.commit()
         cur.close()
         return 'successfully incert'
-    return render_template('index10.html')
+    return render_template('web1.html')
 
 
 if __name__ == '__main__':
