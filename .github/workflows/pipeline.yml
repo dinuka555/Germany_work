@@ -3,7 +3,7 @@ name: Pipeline
 on: [push]
 env:
   APPLICATION_NAME: python-app
-  GKE_CLUSTER: dinuka-cluster
+  GKE_CLUSTER: din-cluster
   IMAGE: static-site
   DEPLOYMENT_NAME: gke-test
 jobs:
